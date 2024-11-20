@@ -23,8 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('https');
 
-Auth::routes()->middleware('https');
+Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('https');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/users', UserController::class)->middleware('https');
+Route::resource('/users', UserController::class);
