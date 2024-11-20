@@ -20,11 +20,11 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->middleware('https');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware('https');
