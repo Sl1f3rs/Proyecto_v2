@@ -15,12 +15,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('https');
 
-Auth::routes();
+Auth::routes()->middleware('https');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('https');
 
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware('https');
